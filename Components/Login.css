@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+/* 🌌 Futuristic Animated Background */
+.login-page{
+  min-height:100vh;
+  background: radial-gradient(circle at top,#0f2027,#000428,#004e92);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+/* Moving Grid Animation */
+.login-page::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(transparent 95%,rgba(0,198,255,.15) 96%),
+    linear-gradient(90deg,transparent 95%,rgba(0,198,255,.15) 96%);
+  background-size:60px 60px;
+  animation:gridMove 20s linear infinite;
+}
+
+/* Floating Neon Orbs */
+.login-page::after{
+  content:'';
+  position:absolute;
+  width:450px;
+  height:450px;
+  border-radius:50%;
+  background:radial-gradient(circle,#00c6ff,#0072ff);
+  filter:blur(140px);
+  opacity:.45;
+  animation:orbMove 12s ease-in-out infinite alternate;
+}
+
+/* 🔮 Glass Card */
+.login-card{
+  width:100%;
+  max-width:420px;
+  padding:40px;
+  border-radius:22px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(35px);
+  box-shadow:0 35px 90px rgba(0,0,0,.8);
+  color:#fff;
+  z-index:2;
+  animation:cardIn .9s ease;
+}
+
+/* Header */
+.login-header{text-align:center;margin-bottom:25px}
+.admin-icon{font-size:60px;color:#00c6ff;text-shadow:0 0 20px #00c6ff}
+.login-header h2{font-weight:600;font-size:28px}
+.login-header p{font-size:13px;color:#ccc}
+
+/* Inputs */
+.input-box{
+  display:flex;
+  align-items:center;
+  margin-bottom:18px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.15);
+  transition:.3s;
+}
+.input-box:hover{box-shadow:0 0 20px rgba(0,198,255,.6)}
+
+.input-icon{color:#9be2ff;margin-right:10px;font-size:18px}
+
+.input-box input{
+  background:transparent;
+  border:none;
+  outline:none;
+  width:100%;
+  color:#fff;
+}
+
+/* Button */
+.login-btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:16px;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:10px;
+  box-shadow:0 0 30px rgba(0,198,255,.6);
+  transition:.4s;
+}
+.login-btn:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 0 45px rgba(0,198,255,.9);
+}
+
+/* Links */
+.login-links{display:flex;justify-content:space-between;margin-top:20px}
+.login-links a{color:#9be2ff;font-size:13px;text-decoration:none}
+.login-links a:hover{text-decoration:underline}
+
+/* Animations */
+@keyframes gridMove{
+  from{background-position:0 0,0 0}
+  to{background-position:0 60px,60px 0}
+}
+@keyframes orbMove{
+  from{transform:translate(-200px,-200px)}
+  to{transform:translate(300px,200px)}
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(60px) scale(.8)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* Mobile */
+@media(max-width:480px){
+  .login-card{padding:30px}
+  .login-links{flex-direction:column;text-align:center;gap:10px}
+}
